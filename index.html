@@ -22,6 +22,7 @@
             clockObj[idx++] = new BasicClock(cCtx, 0, 0, 100);        // Sweep type
             clockObj[idx++] = new BasicClock(cCtx, 100, 0, 100, 1);   // Step type
             clockObj[idx++] = new CircleClock(cCtx, 0, 100, 100);     // Round
+            clockObj[idx++] = new CircleClock(cCtx, 100, 100, 100, 1);// Round child
 
             setInterval(clocksRun, 30); // 30FPS
 
