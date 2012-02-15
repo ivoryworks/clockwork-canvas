@@ -1,0 +1,37 @@
+<!DOCUMENT html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <title>Canvas Clock - Clock artwark</title>
+    <script type="text/javascript" src="./js/clockwork-util.js"></script>
+    <script type="text/javascript" src="./js/clockwork-basic.js"></script>
+    <script type="text/javascript">
+        window.addEventListener('load', eventWindowLoaded, false);
+        function eventWindowLoaded() {
+            clockApp();
+        }
+        function clockApp() {
+            var cElm = document.getElementById("canvas");
+            var cCtx = null;
+            if (!cElm || !(cCtx = cElm.getContext("2d"))) { return; }
+
+            var clockObj = new Array();
+            var idx = 0;
+            clockObj[idx++] = new BasicClock(cCtx, 0, 0, 100);        // Sweep type
+            clockObj[idx++] = new BasicClock(cCtx, 100, 0, 100, 1);   // Step type
+
+            setInterval(clocksRun, 30); // 30FPS
+
+            function clocksRun() {
+                var date = new Date();
+                for (var i = 0; i < clockObj.length; i++) {
+                    clockObj[i].draw(date);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <canvas id="canvas" width="640" height="480"></canvas>
+</body>
+</html>
