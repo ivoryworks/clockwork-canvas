@@ -7,6 +7,7 @@
     <script type="text/javascript" src="./js/clockwork-basic.js"></script>
     <script type="text/javascript" src="./js/clockwork-circle.js"></script>
     <script type="text/javascript" src="./js/clockwork-polygon.js"></script>
+    <script type="text/javascript" src="./js/clockwork-curve.js"></script>
     <script type="text/javascript">
         window.addEventListener('load', eventWindowLoaded, false);
         function eventWindowLoaded() {
@@ -24,8 +25,9 @@
             clockObj[idx++] = new BasicClock(cCtx, 100, 0, 100, 1);   // Step type
             clockObj[idx++] = new CircleClock(cCtx, 0, 100, 100);     // Round
             clockObj[idx++] = new CircleClock(cCtx, 100, 100, 100, 1);// Round child
-            clockObj[idx++] = new PolygonClock(cCtx, 0, 200, 100);
-            clockObj[idx++] = new PolygonClock(cCtx, 100, 200, 100, 1);
+            clockObj[idx++] = new PolygonClock(cCtx, 0, 200, 100);      // Triangle
+            clockObj[idx++] = new PolygonClock(cCtx, 100, 200, 100, 1); // Arrowhead
+            clockObj[idx++] = new CurveClock(cCtx, 0, 300, 100);        // Trillium
 
             setInterval(clocksRun, 30); // 30FPS
 

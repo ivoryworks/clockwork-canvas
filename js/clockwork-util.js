@@ -24,6 +24,13 @@ ClockUtil.drawCircle = function(ctx, posX, posY, radius) {
     }
 };
 
+ClockUtil.drawQuadraticCurve = function(ctx, x1, y1, x2, y2, x3, y3) {
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.quadraticCurveTo(x2, y2, x3, y3);
+    ctx.stroke();
+};
+
 ClockUtil.getSecondsSweepRadian = function(date) {
     return Math.PI * 2 * (15 - (date.getSeconds() + date.getMilliseconds() / 1000)) / 60;
 };
