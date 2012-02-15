@@ -15,6 +15,7 @@
             var cCtx = null;
             if (!cElm || !(cCtx = cElm.getContext("2d"))) { return; }
 
+            cCtx.lineWidth = 0.5;
             var clockObj = new Array();
             var idx = 0;
             clockObj[idx++] = new BasicClock(cCtx, 0, 0, 100);        // Sweep type
