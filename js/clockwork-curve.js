@@ -6,6 +6,15 @@ var CurveClock = function(context, offsetX, offsetY, size, type) {
     this.size = size;
     this.type = (type == undefined) ? 0 : type;
 
+    this.run = function() {
+        var me = this;
+        var intervalDraw = function() {
+            var date = new Date();
+            me.draw(date);
+        }
+        setInterval(intervalDraw, 30);
+    }
+
     this.draw = function(date) {
         with (this) {
             ClockUtil.clearCanvas(ctx, offset.x, offset.y, offset.x+size, offset.y+size);
