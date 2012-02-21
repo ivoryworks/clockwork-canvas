@@ -6,6 +6,7 @@ var CircleClock = function(context, offsetX, offsetY, size, type) {
     this.size = size;
     this.type = (type == undefined) ? 0 : type;
 
+    // Auto draw
     this.run = function() {
         var me = this;
         var intervalDraw = function() {
@@ -15,6 +16,7 @@ var CircleClock = function(context, offsetX, offsetY, size, type) {
         setInterval(intervalDraw, 30);
     }
 
+    // Manual draw
     this.draw = function(date) {
         with (this) {
             ClockUtil.clearCanvas(ctx, offset.x, offset.y, offset.x+size, offset.y+size);
@@ -34,7 +36,7 @@ var CircleClock = function(context, offsetX, offsetY, size, type) {
             var hur = {'radian':ClockUtil.getHoursRadian(date), 'x':0, 'y':0, 'radius':0};
 
             switch (type) {
-            case 1:
+            case 1: // Round in child
                 // Second
                 sec.radius = radius / 2;
                 sec.x = cPos.x + (radius - sec.radius) * Math.cos(sec.radian);
@@ -50,7 +52,7 @@ var CircleClock = function(context, offsetX, offsetY, size, type) {
                 hur.x = sec.x + (sec.radius - hur.radius) * Math.cos(hur.radian);
                 hur.y = sec.y - (sec.radius - hur.radius) * Math.sin(hur.radian);
                 break;
-            case 0:
+            case 0: // Round
             default:
                 // Second
                 sec.radius = radius / 8;

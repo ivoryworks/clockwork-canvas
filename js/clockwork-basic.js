@@ -6,6 +6,7 @@ var BasicClock = function(context, offsetX, offsetY, size, type) {
     this.size = size;
     this.type = (type == undefined) ? 0 : type;
 
+    // Auto draw
     this.run = function() {
         var me = this;
         var intervalDraw = function() {
@@ -15,6 +16,7 @@ var BasicClock = function(context, offsetX, offsetY, size, type) {
         setInterval(intervalDraw, 30);
     }
 
+    // Manual draw
     this.draw = function(date) {
         with (this) {
             ClockUtil.clearCanvas(ctx, offset.x, offset.y, offset.x+size, offset.y+size);
@@ -25,7 +27,7 @@ var BasicClock = function(context, offsetX, offsetY, size, type) {
     this.drawMovement = function(date) {
         with (this) {
             ClockUtil.drawCircle(ctx, cPos.x, cPos.y, radius);
-            // Second
+            // Second (Sweep or Step)
             var sec = {'radian':0, 'x':0, 'y':0, 'radius':radius/8};
             sec.radian = (type == 1) ? ClockUtil.getSecondsRadian(date) : ClockUtil.getSecondsSweepRadian(date);
             sec.x = cPos.x + (radius - sec.radius) * Math.cos(sec.radian);

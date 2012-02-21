@@ -46,3 +46,7 @@ ClockUtil.getMinutesRadian = function(date) {
 ClockUtil.getHoursRadian = function(date) {
     return Math.PI * 2 * (3 - (date.getHours() + date.getMinutes() / 60)) / 12;
 }
+
+ClockUtil.convertAngle2Radian = function(angle) {
+    return Math.PI * 2 * (360 - angle) / 360;
+}

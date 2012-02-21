@@ -6,6 +6,7 @@ var PolygonClock = function(context, offsetX, offsetY, size, type) {
     this.size = size;
     this.type = (type == undefined) ? 0 : type;
 
+    // Auto draw
     this.run = function() {
         var me = this;
         var intervalDraw = function() {
@@ -15,6 +16,7 @@ var PolygonClock = function(context, offsetX, offsetY, size, type) {
         setInterval(intervalDraw, 30);
     }
 
+    // Manual draw
     this.draw = function(date) {
         with (this) {
             ClockUtil.clearCanvas(ctx, offset.x, offset.y, offset.x+size, offset.y+size);
@@ -43,7 +45,7 @@ var PolygonClock = function(context, offsetX, offsetY, size, type) {
             ctx.beginPath();
             ctx.moveTo(hur.x, hur.y);
             if (type == 1) {
-                ctx.lineTo(cPos.x, cPos.y);
+                ctx.lineTo(cPos.x, cPos.y); // Type-1: Add center position
             }
             ctx.lineTo(min.x, min.y);
             ctx.lineTo(sec.x, sec.y);
