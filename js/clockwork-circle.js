@@ -1,7 +1,7 @@
 var CircleClock = function(context, offsetX, offsetY, size, type) {
     this.ctx = context;
-    this.offset = {'x':offsetX, 'y':offsetY};
-    this.cPos = {'x':(offsetX + size/2), 'y':(offsetY + size/2)};
+    this.offset = {x:offsetX, y:offsetY};
+    this.cPos = {x:(offsetX + size/2), y:(offsetY + size/2)};
     this.radius = (size/2)*.98;
     this.size = size;
     this.type = (type == undefined) ? 0 : type;
@@ -29,11 +29,11 @@ var CircleClock = function(context, offsetX, offsetY, size, type) {
             ClockUtil.drawCircle(ctx, cPos.x, cPos.y, radius);
 
             // Second
-            var sec = {'radian':ClockUtil.getSecondsSweepRadian(date), 'x':0, 'y':0, 'radius':0};
+            var sec = {radian:ClockUtil.getSecondsSweepRadian(date), radius:0};
             // Minute
-            var min = {'radian':ClockUtil.getMinutesRadian(date), 'x':0, 'y':0, 'radius':0};
+            var min = {radian:ClockUtil.getMinutesRadian(date), radius:0};
             // Hour
-            var hur = {'radian':ClockUtil.getHoursRadian(date), 'x':0, 'y':0, 'radius':0};
+            var hur = {radian:ClockUtil.getHoursRadian(date), radius:0};
 
             switch (type) {
             case 1: // Round in child
